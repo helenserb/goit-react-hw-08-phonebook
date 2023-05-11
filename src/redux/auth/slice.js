@@ -51,10 +51,10 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state, action) => state)
       .addCase(logOut.fulfilled, () => authInitialState)
 
-      // .addCase(
-      //   fetchCurrentUser.pending,
-      //   (state) => (state.isFetchingCurrentUser = true)
-      // )
+      .addCase(
+        fetchCurrentUser.pending,
+        (state) => { state.isFetchingCurrentUser = true }
+      )
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
